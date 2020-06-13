@@ -6,14 +6,14 @@ fulfilling the following functions:
 1. Require that every transaction touching an account have an accompanying
 document on disk:
 
-    ```.beancount
+    ```beancount
     2000-01-01  open  Expenses:General BEAN
       docverif: "Require"
     ```
 
 1. Explictly declare the name of a document accompanying a transaction:
 
-    ```.beancount
+    ```beancount
     ; Document entry pointing to a working document: should validate correctly
     2020-06-01	*	"plumber"	"fix faucet leak"
       document: "2020-06-01.plumber - services.pdf"
@@ -24,7 +24,7 @@ document on disk:
 1. Explicitly declare that a transaction is expected not to have
 an accompanying document:
 
-    ```.beancount
+    ```beancount
     ; Explicit "None" document: should ignore missing document
     2020-06-01	*	"store"	"groceries"
       document: "None"
@@ -34,7 +34,7 @@ an accompanying document:
 
 1. Look for an "implicit" PDF document matching transaction data:
 
-    ```.beancount
+    ```beancount
     ; Document entry without an explicit "document" entry,
     ; should implicitly match document: "2020-06-01.plumber - services.pdf"
     2020-06-01	*	"plumber"	"services"
@@ -45,7 +45,7 @@ an accompanying document:
 1. Associate (and require) a document with any type of entry,
 including `open` entries themselves:
 
-    ```.beancount
+    ```beancount
     2000-01-01	open	Assets:Bank BEAN
       docverif: "Require"
       document: "2020-06-01.plumber - services.pdf"
@@ -60,7 +60,7 @@ does in fact exist on disk.
 and auto-generating `Document` entries.
 This requires a `documents` option in the beancount file itself, eg:
 
-    ```.beancount
+    ```beancount
     option "documents" "./"
     ```
 
