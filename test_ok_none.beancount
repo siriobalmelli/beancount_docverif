@@ -1,7 +1,6 @@
-option	"include"	"common.beancount"
+option "documents" "./"
 
-; Explicit "None" document: should ignore missing document
-2020-06-01	*	"store"	"groceries"
-  document: "None"
-  Expenses:General
-  Assets:Bank -10 BEAN
+2000-01-01  open  Expenses:General BEAN
+  docverif: "Require"
+
+option	"include"	"Assets/Bank/test_ok_none.beancount"

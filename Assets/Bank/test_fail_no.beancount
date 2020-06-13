@@ -1,0 +1,6 @@
+2000-01-01	open	Assets:Bank BEAN
+
+; Document entry pointing to a missing doc: should fail
+2020-06-01	*	"company"	"gadget"
+  Expenses:General
+  Assets:Bank -75 BEAN

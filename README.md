@@ -1,31 +1,73 @@
 # Beancount Docverif
 
-Is the "Document Verification" plugin for [beancount][],
+Docverif is the "Document Verification" plugin for [beancount][],
 fulfilling the following functions:
 
 1. Require that every transaction touching an account have an accompanying
 document on disk:
 
-        2000-01-01	open	Income:Job BEAN
-          document: "required"
+    ```.beancount
+    2000-01-01  open  Expenses:General BEAN
+      docverif: "Require"
+    ```
 
 1. Explictly declare the name of a document accompanying a transaction:
 
-        2020-06-01	*	"ABC corp"	"salary"
-          document: "2020-06-01.ABC corp - salary.pdf"
-          Assets:Bank
-          Income:Job -1000 BEAN
+    ```.beancount
+    ; Document entry pointing to a working document: should validate correctly
+    2020-06-01	*	"plumber"	"fix faucet leak"
+      document: "2020-06-01.plumber - services.pdf"
+      Expenses:General
+      Assets:Bank -150 BEAN
+    ```
 
 1. Explicitly declare that a transaction is expected not to have
 an accompanying document:
 
-        2020-06-01	*	"store"	"groceries"
-          document: "None"
-          Expenses:General
-          Assets:Bank -10 BEAN
+    ```.beancount
+    ; Explicit "None" document: should ignore missing document
+    2020-06-01	*	"store"	"groceries"
+      document: "None"
+      Expenses:General
+      Assets:Bank -10 BEAN
+    ```
 
-1. Guarantee integrity: verify that every document declared:
-    - does in fact exist on disk
-    - is not zero-sized
+1. Look for an "implicit" PDF document matching transaction data:
+
+    ```.beancount
+    ; Document entry without an explicit "document" entry,
+    ; should implicitly match document: "2020-06-01.plumber - services.pdf"
+    2020-06-01	*	"plumber"	"services"
+      Expenses:General
+      Assets:Bank -150 BEAN
+    ```
+
+1. Associate (and require) a document with any type of entry,
+including `open` entries themselves:
+
+    ```.beancount
+    2000-01-01	open	Assets:Bank BEAN
+      docverif: "Require"
+      document: "2020-06-01.plumber - services.pdf"
+    ```
+
+1. Guarantee integrity: verify that every document declared
+does in fact exist on disk.
+
+## Beancount Quirks
+
+1. We depend on beancount itself finding documents
+and auto-generating `Document` entries.
+This requires a `documents` option in the beancount file itself, eg:
+
+    ```.beancount
+    option "documents" "./"
+    ```
+
+1. Subdirectory format *TODO*
+
+1. Fictitious *TODO*
+
+1. Filename must be valid (eg. "broken.pdf" is out)
 
 [beancount]: http://furius.ca/beancount/

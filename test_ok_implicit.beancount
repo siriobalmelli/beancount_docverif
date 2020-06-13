@@ -3,4 +3,4 @@ option "documents" "./"
 2000-01-01  open  Expenses:General BEAN
   docverif: "Require"
 
-option	"include"	"Assets/Bank/test_ok.beancount"
+option	"include"	"Assets/Bank/test_ok_implicit.beancount"

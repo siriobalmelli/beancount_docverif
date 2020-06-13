@@ -1,7 +1,0 @@
-option	"include"	"common.beancount"
-
-; Document entry pointing to a broken doc: should fail
-2020-06-01	*	"gas station"	"petrol"
-  document: "2020-06-01.gas station - petrol.pdf"
-  Expenses:General
-  Assets:Bank -20 BEAN

@@ -1,0 +1,3 @@
+option "documents" "./"
+
+option	"include"	"Assets/Bank/test_ok_types.beancount"

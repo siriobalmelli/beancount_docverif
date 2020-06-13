@@ -1,0 +1,7 @@
+2000-01-01  open  Assets:Bank BEAN
+
+; Document entry without an explicit "document" entry,
+; should implicitly match document: "2020-06-01.plumber - services.pdf"
+2020-06-01	*	"plumber"	"services"
+  Expenses:General
+  Assets:Bank -150 BEAN

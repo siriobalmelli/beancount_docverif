@@ -1,7 +1,6 @@
-option	"include"	"common.beancount"
+option "documents" "./"
 
-; Document entry pointing to a missing doc: should fail
-2020-06-01	*	"restaurant"	"dinner"
-  document: "2020-06-01.restaurant - dinner.pdf"
-  Expenses:General
-  Assets:Bank -50 BEAN
+2000-01-01  open  Expenses:General BEAN
+  docverif: "Require"
+
+option	"include"	"Assets/Bank/test_fail_missing.beancount"

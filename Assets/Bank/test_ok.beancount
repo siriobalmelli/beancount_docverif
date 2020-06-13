@@ -1,0 +1,7 @@
+2000-01-01	open	Assets:Bank BEAN
+
+; Document entry pointing to a working document: should validate correctly
+2020-06-01	*	"plumber"	"fix faucet leak"
+  document: "2020-06-01.plumber - services.pdf"
+  Expenses:General
+  Assets:Bank -150 BEAN
