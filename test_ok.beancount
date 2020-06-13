@@ -1,0 +1,7 @@
+option	"include"	"common.beancount"
+
+; Document entry pointing to a working document: should validate correctly
+2020-06-01	*	"ABC corp"	"salary"
+  document: "2020-06-01.ABC corp - salary.pdf"
+  Assets:Bank
+  Income:Job -1000 BEAN

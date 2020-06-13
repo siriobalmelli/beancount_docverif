@@ -1,3 +1,12 @@
+##
+# this-repo ignores
+##
+test_log
+
+
+##
+# standard python project ignores
+##
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

@@ -1,0 +1,7 @@
+2000-01-01	open	Assets:Bank BEAN
+
+2000-01-01	open	Income:Job BEAN
+  document: "required"
+
+2000-01-01  open  Expenses:General BEAN
+  document: "required"

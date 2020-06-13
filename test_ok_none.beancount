@@ -1,0 +1,7 @@
+option	"include"	"common.beancount"
+
+; Explicit "None" document: should ignore missing document
+2020-06-01	*	"store"	"groceries"
+  document: "None"
+  Expenses:General
+  Assets:Bank -10 BEAN

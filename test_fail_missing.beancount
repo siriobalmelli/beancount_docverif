@@ -1,0 +1,7 @@
+option	"include"	"common.beancount"
+
+; Document entry pointing to a missing doc: should fail
+2020-06-01	*	"restaurant"	"dinner"
+  document: "2020-06-01.restaurant - dinner.pdf"
+  Expenses:General
+  Assets:Bank -50 BEAN
