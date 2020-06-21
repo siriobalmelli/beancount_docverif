@@ -1,4 +1,4 @@
-# Beancount Docverif
+# Beancount Docverif [![Build Status](https://travis-ci.org/siriobalmelli/beancount_docverif.svg?branch=master)](https://travis-ci.org/siriobalmelli/beancount_docverif)
 
 Docverif is the "Document Verification" plugin for [beancount][],
 fulfilling the following functions:
