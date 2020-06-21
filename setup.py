@@ -7,7 +7,7 @@ with open(path.join(path.dirname(__file__), 'README.md')) as readme:
 setup(
     name='beancount_docverif',
     use_scm_version=True,
-    version='0.0.1',
+    # version='0.0.1',  # rely on Git version tag
     package_dir={'': 'src'},
     py_modules=["beancount_docverif"],
 
@@ -29,7 +29,7 @@ setup(
     },
     packages=find_packages(),
     include_package_data=True,
-    zip_safe=False,  # TODO: what does this do?
+    zip_safe=False,  # cargo cult moment: interwebz sez to write this
 
     url='https://github.com/siriobalmelli/beancount_docverif',
     author='Sirio Balmelli',

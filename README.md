@@ -85,11 +85,13 @@ Run tests:
 python3 -m pytest
 ```
 
-Build package locally:
+Build both binary and source distributions locally:
 
 ```bash
-python3 setup.py bdist_wheel
+python3 setup.py bdist_wheel sdist
 ```
+
+See [sanitize.sh](./sanitize.sh) for maintainer's personal tooling.
 
 ## Beancount Quirks
 
