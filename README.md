@@ -15,7 +15,7 @@ document on disk:
 
     ```beancount
     ; Document entry pointing to a working document: should validate correctly
-    2020-06-01	*	"plumber"	"fix faucet leak"
+    2020-06-01  *   "plumber"   "fix faucet leak"
       document: "2020-06-01.plumber - services.pdf"
       Expenses:General
       Assets:Bank -150 BEAN
@@ -26,7 +26,7 @@ an accompanying document:
 
     ```beancount
     ; Explicit "None" document: should ignore missing document
-    2020-06-01	*	"store"	"groceries"
+    2020-06-01  *   "store" "groceries"
       document: "None"
       Expenses:General
       Assets:Bank -10 BEAN
@@ -37,7 +37,7 @@ an accompanying document:
     ```beancount
     ; Document entry without an explicit "document" entry,
     ; should implicitly match document: "2020-06-01.plumber - services.pdf"
-    2020-06-01	*	"plumber"	"services"
+    2020-06-01  *   "plumber"   "services"
       Expenses:General
       Assets:Bank -150 BEAN
     ```
@@ -46,13 +46,50 @@ an accompanying document:
 including `open` entries themselves:
 
     ```beancount
-    2000-01-01	open	Assets:Bank BEAN
+    2000-01-01  open    Assets:Bank BEAN
       docverif: "Require"
       document: "2020-06-01.plumber - services.pdf"
     ```
 
 1. Guarantee integrity: verify that every document declared
 does in fact exist on disk.
+
+## Installation
+
+```python
+pip install beancount_docverif
+```
+
+## Usage
+
+In your toplevel `.beancount` file, include:
+
+```beancount
+plugin  "bad_beantools.docverif"
+option  "documents" "./"
+```
+
+See the `.beancount` files in [test](./test) for examples.
+
+## Developing
+
+Install package and dev requirements locally:
+
+```bash
+python3 -m pip install -e .[dev]
+```
+
+Run tests:
+
+```bash
+python3 -m pytest
+```
+
+Build package locally:
+
+```bash
+python3 setup.py bdist_wheel
+```
 
 ## Beancount Quirks
 

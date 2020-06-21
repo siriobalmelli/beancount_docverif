@@ -1,0 +1,7 @@
+plugin  "bad_beantools.docverif"
+option "documents" "./"
+
+2000-01-01  open  Expenses:General BEAN
+  docverif: "Require"
+
+option	"include"	"Assets/Bank/test_fail_missing.beancount"
