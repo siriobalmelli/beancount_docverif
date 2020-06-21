@@ -7,7 +7,6 @@ with open(path.join(path.dirname(__file__), 'README.md')) as readme:
 setup(
     name='beancount_docverif',
     use_scm_version=True,
-    # version='0.0.1',  # rely on Git version tag
     package_dir={'': 'src'},
     py_modules=["beancount_docverif"],
 
@@ -43,9 +42,9 @@ setup(
         'Natural Language :: English',
         'Operating System :: OS Independent',
         'Programming Language :: Python :: 3 :: Only',
-        'Programming Language :: Python :: 3 :: 3.6',
-        'Programming Language :: Python :: 3 :: 3.7',
-        'Programming Language :: Python :: 3 :: 3.8',
+        'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.8',
         'Topic :: Office/Business :: Financial :: Accounting',
         'Topic :: Office/Business :: Financial :: Investment',
     ],
