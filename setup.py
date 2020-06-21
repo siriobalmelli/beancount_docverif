@@ -23,7 +23,8 @@ setup(
     extras_require={
         'dev': [
             'pytest',
-            'sh'
+            'sh',
+            'tox'
         ]
     },
     packages=find_packages(),
