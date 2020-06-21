@@ -9,7 +9,7 @@ trap "popd" EXIT
 
 # Remove any build or runtime arifacts
 # ... python can be a bit noisy with artifacts floating around the project dir
-rm -rfv build dist src/beancount_docverif.egg-info
+rm -rfv build dist src/beancount_docverif.egg-info result
 find . \( -name "__pycache__" -o -name "*.pyc" \) -exec rm -rfv '{}' \; \
 	2>/dev/null || true
 

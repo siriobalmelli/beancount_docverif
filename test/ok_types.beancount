@@ -1,4 +1,4 @@
-plugin  "bad_beantools.docverif"
+plugin  "beancount_docverif.docverif"
 option "documents" "./"
 
 option	"include"	"Assets/Bank/test_ok_types.beancount"

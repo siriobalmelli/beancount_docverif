@@ -65,7 +65,7 @@ pip install beancount_docverif
 In your toplevel `.beancount` file, include:
 
 ```beancount
-plugin  "bad_beantools.docverif"
+plugin  "beancount_docverif.docverif"
 option  "documents" "./"
 ```
 
