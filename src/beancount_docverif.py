@@ -93,22 +93,3 @@ def docverif(entries: list, options: list) -> (list, list):
                     err.append(DocumentError(meta, f'expected eg: {imp}', ent))
 
     return entries, err
-
-
-# main() - import the data ourselves (instead of being called as a plug-in)
-if __name__ == "__main__":
-
-    # expect the first argument to be a beancount file
-    import sys
-    from beancount.loader import load_file
-    entries, errors, options = load_file(sys.argv[1])
-    print('\n'.join(e.message for e in errors))
-
-    DEBUG = 1
-
-    # run the docverif() plugin
-    entries, doc_err = docverif(entries, options)
-
-    print('\n'.join([err.message for err in doc_err]))
-
-    exit(len(doc_err))
