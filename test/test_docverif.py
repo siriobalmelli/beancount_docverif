@@ -1,4 +1,4 @@
-from sh import bean_check
+from beancount.loader import load_file
 from glob import glob
 from os import path
 import beancount_docverif
@@ -10,6 +10,18 @@ def test_basic_import():
 
 
 prefix = path.dirname(__file__)
+
+
+def test_beancount_import():
+    testfile = f'{prefix}/import.beancount'
+    base = path.basename(testfile)
+    entries, errors, options = load_file(testfile)
+    if errors:
+        raise RuntimeError(f'{base}: import errors:\n'
+                           f'{chr(10).join(e.message for e in errors)}')
+    print(f'{base}: ok')
+
+
 PASS = glob(f'{prefix}/ok_*.beancount')
 FAIL = glob(f'{prefix}/fail_*.beancount')
 
@@ -21,21 +33,17 @@ def test_cases_found():
 @pytest.mark.parametrize('testfile', PASS)
 def test_pass_examples(testfile):
     base = path.basename(testfile)
-    try:
-        bean_check(testfile)
-    except Exception as e:
-        print(f'{base}: expected pass but got a fail:\n{e}')
-    else:
-        print(f'{base}: ok')
+    entries, errors, options = load_file(testfile)
+    if errors:
+        raise RuntimeError(f'{base}: import errors:\n'
+                           f'{chr(10).join(e.message for e in errors)}')
+    print(f'{base}: ok')
 
 
 @pytest.mark.parametrize('testfile', FAIL)
 def test_fail_examples(testfile):
     base = path.basename(testfile)
-    try:
-        bean_check(testfile)
-    except Exception:
-        print(f'{base}: ok')
-    else:
-        print(f'{base}: expected fail but got a pass.')
-        assert(False)
+    entries, errors, options = load_file(testfile)
+    if not errors:
+        raise RuntimeError(f'{base}: expected fail but got a pass.')
+    print(f'{base}: ok')

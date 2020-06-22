@@ -23,7 +23,6 @@ setup(
     extras_require={
         'dev': [
             'pytest',
-            'sh',
             'tox'
         ]
     },

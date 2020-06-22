@@ -17,7 +17,7 @@ from os import path
 from collections import namedtuple
 DocumentError = namedtuple('DocumentError', 'source message entry')
 
-__plugins__ = ['docverif']
+__plugins__ = ('docverif', )
 DEBUG = 0
 
 

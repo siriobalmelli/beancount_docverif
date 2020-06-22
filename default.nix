@@ -27,7 +27,6 @@ buildPythonPackage rec {
   checkInputs = [
     beancount
     pytest
-    sh
   ];
   checkPhase = ''
     pytest
