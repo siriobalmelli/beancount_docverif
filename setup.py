@@ -7,7 +7,6 @@ with open(path.join(path.dirname(__file__), 'README.md')) as readme:
 setup(
     name='beancount_docverif',
     use_scm_version=True,
-    package_dir={'': 'src'},
     py_modules=["beancount_docverif"],
 
     description='Document verification plugin for Beancount',
