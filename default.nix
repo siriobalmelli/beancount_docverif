@@ -10,7 +10,7 @@ with nixpkgs.python3.pkgs;
 
 buildPythonPackage rec {
   pname = "beancount_docverif";
-  version = "0.1.0";
+  version = "1.0.0";
   disabled = !isPy3k;
 
   src = ./.;

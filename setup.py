@@ -35,7 +35,7 @@ setup(
     license='MIT',
     keywords='plugins double-entry beancount accounting document verification',
     classifiers=[
-        'Development Status :: 3 - Alpha',
+        'Development Status :: 5 - Production/Stable',
         'Intended Audience :: Financial and Insurance Industry',
         'License :: OSI Approved :: MIT License',
         'Natural Language :: English',
