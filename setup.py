@@ -20,10 +20,7 @@ setup(
         'beancount',
     ],
     extras_require={
-        'dev': [
-            'pytest',
-            'tox'
-        ]
+        'dev': ['pytest']
     },
     packages=find_packages(),
     include_package_data=True,
