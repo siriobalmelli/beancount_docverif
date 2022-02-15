@@ -11,7 +11,7 @@ document on disk:
       docverif: "Require"
     ```
 
-1. Explictly declare the name of a document accompanying a transaction:
+1. Explicitly declare the name of a document accompanying a transaction:
 
     ```beancount
     ; Document entry pointing to a working document: should validate correctly
