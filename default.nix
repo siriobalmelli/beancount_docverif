@@ -15,7 +15,7 @@ buildPythonPackage rec {
 
   src = ./.;
 
-  leaveDotGit = true;
+  leaveDotGit = false;  # don't use setuptools SCM versioning; just do it manually
   nativeBuildInputs = [
     git
     setuptools_scm
