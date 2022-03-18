@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # maintainer's personal script; use at own risk
+# run inside 'nix-shell --pure'
 set -e
 
 # Simplify path handling
@@ -22,7 +23,7 @@ find . \( -name "__pycache__" -o -name "*.pyc" \) -exec rm -rfv '{}' \; \
 
 
 # Install dev environment and run tests
-python3 -m pip install -e .[dev]
+# python3 -m pip install -e .[dev]
 python3 -m pytest
 
 

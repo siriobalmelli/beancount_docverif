@@ -10,7 +10,7 @@ with nixpkgs.python3.pkgs;
 
 buildPythonPackage rec {
   pname = "beancount_docverif";
-  version = "1.0.0";
+  version = "1.0.1";
   disabled = !isPy3k;
 
   src = ./.;
@@ -19,6 +19,7 @@ buildPythonPackage rec {
   nativeBuildInputs = [
     git
     setuptools_scm
+    twine
   ];
   propagatedBuildInputs = [
     beancount
